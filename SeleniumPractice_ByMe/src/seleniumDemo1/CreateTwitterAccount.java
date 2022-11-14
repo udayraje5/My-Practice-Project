@@ -11,18 +11,14 @@ public class CreateTwitterAccount {
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "F:\\Browser Driver\\lib\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://twitter.com/");
+		driver.get("https://twitter.com/i/flow/signup");
 		driver.manage().window().maximize();
 		Thread.sleep(5000);
 
-		driver.findElement(By
-				.xpath("//*[@id=\"react-root\"]/div/div/div[2]/main/div/div/div[1]/div[1]/div/div[3]/a/div/span/span"))
-				.click();
+		driver.findElement(By.xpath("//span[@class=\"css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0\"][contains(text(),'Sign up with phone or email')]")).click();
 		Thread.sleep(5000);
 
-		driver.findElement(By.xpath(
-				"//*[@id=\"layers\"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/div[1]/label/div/div[2]/div/input"))
-				.sendKeys("Uday Arsolikar");
+		driver.findElement(By.xpath("//input[@name='name']")).sendKeys("Uday Arsolikar");
 		Thread.sleep(5000);
 
 		driver.findElement(By.xpath(
@@ -76,5 +72,3 @@ public class CreateTwitterAccount {
 	}
 
 }
-
-

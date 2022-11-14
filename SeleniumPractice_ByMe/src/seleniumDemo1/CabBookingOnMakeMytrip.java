@@ -23,84 +23,80 @@ public class CabBookingOnMakeMytrip {
 
 		System.out.println(
 				driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[1]/ul/li[2]/span")).isEnabled());
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 
 		System.out.println(
 				driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[1]/ul/li[2]/span")).isSelected());
-		Thread.sleep(5000);
+		Thread.sleep(3000); 
 
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[1]/ul/li[2]/span")).click();
 		Thread.sleep(5000);
 
-		System.out.println(
-				driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[1]/ul/li[2]/span")).isSelected());
-		Thread.sleep(5000);
-//	       boolean OutSSel = driver.findElement(By.className("tabsCircle appendRight5")).isSelected();
-//	       System.out.println(OutSSel);
+		
 
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/div[1]/label/span")).click();
 		Thread.sleep(5000);
 
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/div[1]/div[1]/div/div/div/input"))
-				.sendKeys("Pune");
+		WebElement Dr = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/div[1]/div[1]/div/div/div/input"));
+		Dr.sendKeys("Pune");
+		Thread.sleep(5000);
+        Dr.sendKeys(Keys.ARROW_DOWN);
+        Thread.sleep(5000);
+		Dr.sendKeys(Keys.ENTER);
 		Thread.sleep(5000);
 
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/div[1]/div[1]/div/div/div/input"))
-				.sendKeys(Keys.ARROW_DOWN);
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/div[1]/div[1]/div/div/div/input"))
-				.sendKeys(Keys.ENTER);
-		Thread.sleep(5000);
+		driver.findElement(By.xpath("//span[contains(text(),'To')]")).click();
+		
 
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/div[2]/label/span")).click();
+		 WebElement from= driver.findElement(By.xpath("//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]"));
+		from.sendKeys("Delhi");
 		Thread.sleep(5000);
-
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div/div/div/input"))
-				.sendKeys("Mumbai");
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div/div/div/input"))
-				.sendKeys(Keys.ARROW_DOWN);
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/div[2]/div[1]/div/div/div/input"))
-				.sendKeys(Keys.ENTER);
-
+        from.sendKeys(Keys.ARROW_DOWN);
+        Thread.sleep(5000);
+		from.sendKeys(Keys.ENTER);
 		Thread.sleep(5000);
 
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/div[3]/label/span")).click();
 		Thread.sleep(5000);
-
-		String month = "Octomber2022";
-		String exp_date = "2,3";
-
-		while (true) {
-			String monthText = driver.findElement(By.xpath(
-					"//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/div[3]/div[1]/div/div/div/div[2]/div/div[2]/div[1]/div[1]/div"))
-					.getText();
-			// System.out.println(monthText);
-			Thread.sleep(5000);
-
-			if (monthText.equals(month)) {
-
-				break;
-			} else {
-				driver.findElement(By.xpath(
-						"//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/div[3]/div[1]/div/div/div/div[2]/div/div[1]/span[2]"))
-						.click();
-			}
-		}
+		
+		driver.findElement(By.xpath("//div[@class=\"DayPicker-Day\"][contains(@aria-label,'Tue Dec 20 2022')]")).click();
 		Thread.sleep(5000);
+		driver.findElement(By.xpath("//span[contains(text(),'RETURN')]")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//div[@class=\"DayPicker-Day\"][contains(@aria-label,'Tue Dec 27 2022')]")).click();
+		Thread.sleep(5000);  
+		
+		WebElement To =driver.findElement(By.xpath("//span[normalize-space()='PICKUP-TIME']"));
+		To.click();
+		driver.findElement(By.xpath("//body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/ul[1]/li[7]")).click();
+		Thread.sleep(5000);
+        driver.findElement(By.xpath("//span[contains(text(),'DROP-TIME')]")).click();
+        driver.findElement(By.xpath("//body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/ul[1]/li[1]")).click();
+        Thread.sleep(5000);
+		driver.findElement(By.xpath("//a[normalize-space()='Search']")).click();
+		
+		
+/*		To.sendKeys(Keys.ARROW_DOWN);
+		To.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
+		    //OR
+		Select s=new Select(To);
+		s.selectByVisibleText("01:00AM");
+ *           //OR
+		List<WebElement> alloptions = s.getOptions();
+		
+		for(WebElement option:alloptions)
+		{
+			if(option.equals("01:00AM"))
+			{
+				option.click();
+				break;         
+			}                  
+		}*/
+		
 
-		driver.findElement(By.xpath("//div[@aria-label='Thu Oct 13 2022']")).getText();
-		driver.findElement(By.xpath("//div[@aria-label='Fri Oct 21 2022']")).getText();
 
-		/*
-		 * for( WebElement ele:allDates) { Thread.sleep(5000);
-		 * System.out.println(ele.getText()); Thread.sleep(5000); ele.click();
-		 * 
-		 * }
-		 */
 
-		System.out.println("Udayraje");
 	}
 
 }
